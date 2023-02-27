@@ -21,7 +21,11 @@ const getUsers = async () => {
 const insertUsers = async () => {
 	const userData = await getUsers();
 	const users = userData.users;
-	displayUsers(users, UserListItem);
+	const usersIndexed = users.map((user, i) => {
+		user.index = i;
+		return user;
+	});
+	displayUsers(usersIndexed, UserListItem);
 };
 insertUsers();
 

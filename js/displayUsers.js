@@ -3,8 +3,14 @@ import { viewHandler } from "./handlers.js";
 export const displayUsers = (users, UserListItem) => {
 	const userList = document.getElementsByClassName("user-list")[0];
 	let usersHTML = "";
-	users.forEach((e, i) => {
-		usersHTML += UserListItem(i, e.username, e.firstName, e.lastName, e.image);
+	users.forEach((e) => {
+		usersHTML += UserListItem(
+			e.index,
+			e.username,
+			e.firstName,
+			e.lastName,
+			e.image
+		);
 	});
 	userList.innerHTML = usersHTML;
 	const listElements = userList.children;

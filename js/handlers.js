@@ -21,7 +21,7 @@ export const searchFocusHandler = (e) => {
 	const inputContainer = document.getElementsByClassName("input-container")[0];
 	overlaySearch.prepend(inputContainer);
 	overlay.style.display = "flex";
-	inputContainer.children[1].focus();
+	inputContainer.children[0].focus();
 };
 
 //
@@ -34,7 +34,6 @@ export const overlayClickHandler = (e) => {
 
 export const viewHandler = (e, i) => {
 	const listItem = document.getElementsByClassName("user-list")[0].children[i];
-	console.log(i);
 	listItem.style.minHeight =
 		listItem.style.minHeight === "30rem" ? "0rem" : "30rem";
 };
