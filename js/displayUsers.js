@@ -4,7 +4,7 @@ export const displayUsers = (users, UserListItem) => {
 	const userList = document.getElementsByClassName("user-list")[0];
 	let usersHTML = "";
 	users.forEach((e, i) => {
-		usersHTML += UserListItem(e.username, e.firstName, e.lastName, e.image);
+		usersHTML += UserListItem(i, e.username, e.firstName, e.lastName, e.image);
 	});
 	userList.innerHTML = usersHTML;
 	const listElements = userList.children;

@@ -113,6 +113,22 @@ body {
 	box-shadow: var(--main-box-shadow);
 	justify-content: space-between;
 	transition: min-height 0.5s;
+	position: relative;
+	overflow: hidden;
+}
+
+div.user-list-item-banner {
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	background: rgb(197, 197, 197);
+	top: 0;
+	left: 0;
+}
+
+.user-list-item > .user-list-item-content,
+.user-list-item > .view-btn {
+	position: relative;
 }
 
 .user-list-item-content {
