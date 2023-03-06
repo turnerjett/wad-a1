@@ -26,8 +26,22 @@ export const searchFocusHandler = (e) => {
 	inputContainer.children[0].focus();
 };
 
-// Function to handle when the overlay is clicked
+// Function to handle when the overlay or search button is clicked
 export const overlayClickHandler = (e) => {
+	const searchWrapper = document.getElementsByClassName("search-wrapper")[1];
+	const overlaySearch = document.getElementsByClassName("search-wrapper")[0];
+	// Move search bar back to original position
+	if (overlaySearch.firstChild !== null) {
+		searchWrapper.prepend(overlaySearch.firstChild);
+	}
+	// Set the overlays display to none
+	overlay.style.display = "none";
+};
+
+// Function to handle when the overlay is clicked
+export const returnPressHandler = (e) => {
+	if (e.key !== "Enter") return;
+	// e.preventDefault();
 	const searchWrapper = document.getElementsByClassName("search-wrapper")[1];
 	const overlaySearch = document.getElementsByClassName("search-wrapper")[0];
 	// Move search bar back to original position

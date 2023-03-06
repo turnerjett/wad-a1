@@ -2,6 +2,7 @@ import {
 	searchChangeHandler,
 	searchFocusHandler,
 	overlayClickHandler,
+	returnPressHandler,
 } from "./handlers.js";
 import { filterUsers } from "./filter.js";
 import UserListItem from "./UserListItem.js";
@@ -42,5 +43,8 @@ searchBar.addEventListener("change", (e) =>
 	searchChangeHandler(e, filterUsers, getUsers, UserListItem)
 );
 searchBar.addEventListener("focus", searchFocusHandler);
+searchBar.addEventListener("keypress", returnPressHandler);
+const searchButton = document.getElementsByClassName("search-button")[0];
+searchButton.addEventListener("click", overlayClickHandler);
 const overlay = document.getElementsByClassName("overlay-background")[0];
 overlay.addEventListener("click", overlayClickHandler);
