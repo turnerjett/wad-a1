@@ -53,7 +53,24 @@ export const returnPressHandler = (e) => {
 // Function to handle expanding the user view to show more info
 export const viewHandler = (e, i) => {
 	const listItem = document.getElementsByClassName("user-list")[0].children[i];
+	const contentItem = listItem.querySelector(".user-list-item-content");
+	const usernameText = listItem.querySelector(".username");
+	const buttonSVG = listItem.querySelector(".view-btn > svg");
 	// Conditionally toggle height of user list item
 	listItem.style.minHeight =
 		listItem.style.minHeight === "30rem" ? "0rem" : "30rem";
+
+	buttonSVG.style.rotate =
+		buttonSVG.style.rotate === "45deg" ? "0deg" : "45deg";
+	if (listItem.style.minHeight === "30rem") {
+		const flexTimer = setTimeout(() => {
+			contentItem.style.flexDirection = "column";
+			contentItem.style.alignItems = "flex-start";
+			usernameText.style.color = "black";
+		}, 300);
+	} else {
+		contentItem.style.flexDirection = "row";
+		contentItem.style.alignItems = "center";
+		usernameText.style.color = "white";
+	}
 };
