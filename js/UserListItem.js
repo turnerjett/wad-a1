@@ -16,8 +16,8 @@ const UserListItem = (index, username, firstname, lastname, image) => {
     <div class="user-list-item-content">
         <img src="${image}" style="width:100px;height:100px;"/>
         <div class="user-info-container">
-            <h3>@${username}</h3>
-            <h3>${firstname} ${lastname}</h3>
+            <h3 class="username">@${username}</h3>
+            <h3 class="full-name">${firstname} ${lastname}</h3>
         </div>
     </div>
     <button class="view-btn">View Profile</button>
