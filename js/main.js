@@ -18,6 +18,7 @@ const getUsers = async () => {
 	// Convert data to JSON
 	const json = await res.json();
 	// Return the JSON object
+	console.log(json);
 	return json;
 };
 

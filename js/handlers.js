@@ -54,23 +54,39 @@ export const returnPressHandler = (e) => {
 export const viewHandler = (e, i) => {
 	const listItem = document.getElementsByClassName("user-list")[0].children[i];
 	const contentItem = listItem.querySelector(".user-list-item-content");
+	const userInfo = listItem.querySelector(".user-info-container");
+	const expandedContent = listItem.querySelector(".expanded-content");
 	const usernameText = listItem.querySelector(".username");
 	const buttonSVG = listItem.querySelector(".view-btn > svg");
+	if (listItem.style.minHeight !== "30rem") {
+		userInfo.style.opacity = "0";
+	}
 	// Conditionally toggle height of user list item
 	listItem.style.minHeight =
 		listItem.style.minHeight === "30rem" ? "0rem" : "30rem";
-
 	buttonSVG.style.rotate =
 		buttonSVG.style.rotate === "45deg" ? "0deg" : "45deg";
 	if (listItem.style.minHeight === "30rem") {
-		const flexTimer = setTimeout(() => {
+		// Timer to aviod flex change interupting container expanding animation
+		setTimeout(() => {
+			// Change layout for expanded view
 			contentItem.style.flexDirection = "column";
 			contentItem.style.alignItems = "flex-start";
+			// Move container down for better alignment when expanded
+			contentItem.style.translate = "0px 8px";
+			// Change username to black for readability
 			usernameText.style.color = "black";
+			// Change opacity for smooth transition
+			userInfo.style.opacity = "1";
+			// Display the expanded information
+			expandedContent.style.display = "block";
 		}, 300);
 	} else {
+		// Revert changes made when expanding
 		contentItem.style.flexDirection = "row";
 		contentItem.style.alignItems = "center";
+		contentItem.style.translate = "initial";
 		usernameText.style.color = "white";
+		expandedContent.style.display = "none";
 	}
 };

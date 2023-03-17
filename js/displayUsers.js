@@ -12,7 +12,10 @@ export const displayUsers = (users, UserListItem) => {
 			e.username,
 			e.firstName,
 			e.lastName,
-			e.image
+			e.image,
+			e.age,
+			e.address.city,
+			e.company.title
 		);
 	});
 	// Insert HTML into list element

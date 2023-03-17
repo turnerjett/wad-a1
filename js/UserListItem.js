@@ -7,7 +7,16 @@ const gradients = [
 ];
 
 // Function to generate reusable user component
-const UserListItem = (index, username, firstname, lastname, image) => {
+const UserListItem = (
+	index,
+	username,
+	firstname,
+	lastname,
+	image,
+	age,
+	city,
+	job
+) => {
 	return `
     <li class="user-list-item">
     <div class="user-list-item-banner" style="background:${
@@ -18,6 +27,11 @@ const UserListItem = (index, username, firstname, lastname, image) => {
         <div class="user-info-container">
             <h3 class="username">@${username}</h3>
             <h3 class="full-name">${firstname} ${lastname}</h3>
+            <div class="expanded-content">
+                <p>Age: ${age}<br>
+                Location: ${city}<br>
+                Job Title: ${job}</p>
+            </div>
         </div>
     </div>
     <button class="view-btn">

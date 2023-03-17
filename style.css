@@ -52,7 +52,7 @@ button {
 
 .search-wrapper {
 	position: relative;
-	max-width: 70rem;
+	max-width: 100rem;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -78,7 +78,7 @@ button {
 .input-container > input#search {
 	width: 0px;
 	min-width: 50px;
-	flex: 5;
+	flex: 7;
 	border: none;
 	/* border-right: 3px solid grey; */
 	padding-left: 1.2rem;
@@ -93,6 +93,11 @@ button {
 	flex: 1;
 	position: relative;
 	cursor: pointer;
+	min-width: 7rem;
+}
+
+button.search-button > svg {
+	fill: white;
 }
 
 button.search-button:hover {
@@ -112,18 +117,20 @@ button.search-button:hover {
 }
 
 .user-list-wrapper {
-	max-width: 70rem;
+	max-width: 100rem;
 	width: 100%;
 }
 
 .user-list {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 2rem;
 }
 
 .user-list-item {
 	min-height: 0rem;
+	width: 48.7%;
 	display: flex;
 	align-items: center;
 	padding: 2rem;
@@ -134,6 +141,7 @@ button.search-button:hover {
 	transition: min-height 0.5s;
 	position: relative;
 	overflow: hidden;
+	height: 15rem;
 }
 
 div.user-list-item-banner {
@@ -183,7 +191,7 @@ button.view-btn:hover {
 .user-list-item-content {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: 1.5rem;
 }
 
 .user-list-item-content > img {
@@ -200,6 +208,7 @@ button.view-btn:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	transition: opacity 0.2s;
 }
 
 .username {
@@ -209,4 +218,28 @@ button.view-btn:hover {
 
 .full-name {
 	font-weight: 400;
+}
+
+.expanded-content {
+	display: none;
+}
+
+.api-link-container {
+	text-align: center;
+	padding: 2rem;
+}
+
+@media (max-width: 830px) {
+	.search-wrapper, .user-list-wrapper {
+		max-width: 70rem;
+	}
+
+	.user-list {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+
+	.user-list-item {
+		width: initial;
+	}
 }
